@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
-import { Grid } from 'semantic-ui-react';
+import { Grid ,Loader} from 'semantic-ui-react';
 
 import PostCard from '../components/PostCard';
 
@@ -39,7 +39,7 @@ function Home() {
       </Grid.Row>
       <Grid.Row>
         {loading ? (
-          <h1>Loading posts..</h1>
+          <div className="ui active centered inline loader"></div>
         ) : (
           data.getPosts &&
           data.getPosts.map((post) => (
