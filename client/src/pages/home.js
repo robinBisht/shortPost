@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useQuery } from '@apollo/react-hooks';
-import { Grid ,Loader} from 'semantic-ui-react';
+import { Grid ,Transition} from 'semantic-ui-react';
 
 import {FETCH_POSTS_QUERY} from '../utils/graphql'
 import {AuthContext} from '../context/auth';
@@ -28,14 +28,17 @@ function Home() {
 
         {loading ? (
           <div className="ui active centered inline loader"></div>
-        ) : (
-          data.getPosts &&
-          data.getPosts.map((post) => (
-            <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
-              <PostCard post={post} />
-            </Grid.Column>
-          ))
-        )}
+        ) : 
+         (
+          <Transition.Group>
+            {data.getPosts &&
+            data.getPosts.map((post) => (
+              <Grid.Column key={post.id} style={{ marginBottom: 20 }}>
+                <PostCard post={post} />
+              </Grid.Column>
+            ))}
+          </Transition.Group> 
+         )}
       </Grid.Row>
     </Grid>
   );
