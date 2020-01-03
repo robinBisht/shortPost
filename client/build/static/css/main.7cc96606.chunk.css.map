@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,YACI,uBAAyB,CACzB,iBAAkB,CAClB,cAAe,CACf,iBACJ,CAEA,gBACI,WAAY,CACZ,WACJ","file":"main.7cc96606.chunk.css","sourcesContent":[".page-title{\n    display: block !important;\n    text-align: center;\n    font-size: 2rem;\n    margin-top: 1.4rem;\n}\n\n.form-container{\n    width: 40rem;\n    margin: auto;\n}"]}

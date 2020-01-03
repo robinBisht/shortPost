@@ -6,6 +6,7 @@ const {MONGODB} = require('./config.js')
 const resolvers = require('./graphql/resolvers')
 const typeDefs = require('./graphql/typeDefs')
 
+const PORT = process.env.port || 5000
 
 const server = new ApolloServer({
     typeDefs,
@@ -16,9 +17,14 @@ const server = new ApolloServer({
 const Conn = async () => {
     await mongoose.connect(MONGODB,{useNewUrlParser:true,useUnifiedTopology:true})
     console.log('MongoDb Connected')
-    const res = await server.listen({port:5000})
+    const res = await server.listen({port:PORT})
     console.log(`
         server running at ${res.url}`)
 }
 
-Conn()
+try{
+    Conn()
+} catch(err)
+{
+    console.log(err)
+}
